@@ -24,14 +24,14 @@ export const Home: React.FC = () => {
     <div id="page-auth">
       <aside>
         <img src={illustrationImg} alt="Ilustração" />
-        <strong>Crie salas de Q&amp;A ao vivo</strong>
-        <p>Tire as dúvidas da sua audiência em tempo-real</p>
+        <strong>Toda pergunta tem uma resposta.</strong>
+        <p>Aprenda e compartilhe conhecimento com outras pessoas</p>
       </aside>
       <main>
         <div className="main-content">
           <img src={logoImg} alt="Letmeask" />
           <button className="create-room" onClick={handleCreateRoom}>
-            <img src={googleIconImg} alt="" />
+            <img src={googleIconImg} alt="Google Icon" />
             Crie sua sala com o Google
           </button>
 
