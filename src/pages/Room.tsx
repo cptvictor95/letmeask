@@ -17,7 +17,7 @@ type RoomParams = {
 };
 
 export const Room: React.FC = () => {
-  const { user } = useAuth();
+  const { user, signOut } = useAuth();
   const params = useParams<RoomParams>();
   const roomId = params.id;
   const { title, questions } = useRoom(roomId);
@@ -69,7 +69,12 @@ export const Room: React.FC = () => {
       <header>
         <div className="content">
           <img src={logoImg} alt="" />
-          <RoomCode code={roomId} />
+          <div>
+            <RoomCode code={roomId} />
+            <Button onClick={signOut} className="button danger">
+              Sair
+            </Button>
+          </div>
         </div>
       </header>
 

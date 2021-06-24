@@ -17,7 +17,7 @@ type RoomParams = {
 };
 
 export const AdminRoom: React.FC = () => {
-  const { user } = useAuth();
+  const { user, signOut } = useAuth();
   const params = useParams<RoomParams>();
   const history = useHistory();
   const roomId = params.id;
@@ -41,12 +41,13 @@ export const AdminRoom: React.FC = () => {
     <div id="page-room">
       <header>
         <div className="content">
-          <img src={logoImg} alt="" />
+          <img src={logoImg} alt="Logo" />
           <div>
             <RoomCode code={roomId} />
             <Button isOutlined onClick={handleCloseRoom}>
               Encerrar sala
             </Button>
+            <Button onClick={signOut}>Sair</Button>
           </div>
         </div>
       </header>

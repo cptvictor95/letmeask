@@ -1,5 +1,6 @@
 import firebase from "firebase";
 import React, { createContext, useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { AuthContextType } from "../interface/AuthContext";
 import { User } from "../interface/User";
 import { auth } from "../services/firebase";
@@ -8,6 +9,7 @@ export const AuthContext = createContext({} as AuthContextType);
 
 export const AuthContextProvider: React.FC = ({ children }) => {
   const [user, setUser] = useState<User>();
+  const history = useHistory();
 
   const signInWithGoogle = async () => {
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -26,6 +28,14 @@ export const AuthContextProvider: React.FC = ({ children }) => {
         name: displayName,
         avatar: photoURL as string,
       });
+    }
+  };
+
+  const signOut = async () => {
+    if (user) {
+      await auth.signOut();
+      setUser(undefined);
+      history.push("/");
     }
   };
 
@@ -52,7 +62,7 @@ export const AuthContextProvider: React.FC = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, signInWithGoogle }}>
+    <AuthContext.Provider value={{ user, signInWithGoogle, signOut }}>
       {children}
     </AuthContext.Provider>
   );
