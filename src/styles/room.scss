@@ -11,7 +11,17 @@
       align-items: center;
   
       > img {
-        max-height: 45px;
+        max-height: 48px;
+      }
+
+      > div {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        button {
+          height: 48px;
+        }
       }
     }
   }
@@ -92,6 +102,10 @@
           }
         }
       }
+    }
+
+    .question-list {
+      margin-top: 32px;
     }
   }
 }

@@ -1,17 +1,8 @@
 import firebase from "firebase";
 import React, { createContext, useState, useEffect } from "react";
+import { AuthContextType } from "../interface/AuthContext";
+import { User } from "../interface/User";
 import { auth } from "../services/firebase";
-
-type User = {
-  id: string;
-  name: string;
-  avatar: string;
-};
-
-type AuthContextType = {
-  user: User | undefined;
-  signInWithGoogle: () => Promise<void>;
-};
 
 export const AuthContext = createContext({} as AuthContextType);
 
