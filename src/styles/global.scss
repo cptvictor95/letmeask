@@ -5,13 +5,16 @@
 }
 
 body {
+  
   .light {
-    background: #f8f8f8;
+    transition: color 0.5s, background-color 0.5s;
+    background-color: #f8f8f8;
     color: #29292e;
   }
-
+  
   .dark {
-    background: #29292e;
+    transition: color 0.5s, background-color 0.5s;
+    background-color: #29292e;
     color: #f8f8f8;
   }
 }

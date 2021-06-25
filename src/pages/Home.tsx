@@ -62,7 +62,7 @@ export const Home: React.FC = () => {
           ) : (
             <img src={logoDark} alt="Letmeask" />
           )}
-          <button onClick={handleCreateRoom} className="create-room">
+          <button onClick={handleCreateRoom} className="google-login">
             <img src={googleIconImg} alt="Google Icon" />
             Crie sua sala com o Google
           </button>

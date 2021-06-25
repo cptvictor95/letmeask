@@ -74,7 +74,7 @@ export const Room: React.FC = () => {
 
       <main>
         <div className="room-title">
-          <h1>Sala {title}</h1>
+          <h1>{title && title}</h1>
           {questions.length > 0 &&
             (questions.length === 1 ? (
               <span>{questions.length} pergunta</span>
@@ -92,7 +92,7 @@ export const Room: React.FC = () => {
 
           <div className="form-footer">
             {user ? (
-              <div className="user-info">
+              <div className={`user-info ${theme}`}>
                 <img src={user.avatar} alt={user.name} />
                 <span>{user.name}</span>
               </div>

@@ -1,5 +1,6 @@
 #page-room {
-  height: 100vh;
+  min-height: 100vh;
+  padding-bottom: 16px;
 
   header {
     padding: 24px;
@@ -59,7 +60,6 @@
         border: 3px solid transparent;
         padding: 16px;
         border-radius: 8px;
-        background: #fefefe;
         box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
         transition: box-shadow 0.3s;
         
@@ -91,9 +91,9 @@
 
           span {
             margin-left: 8px;
-            color: #29292e;
             font-weight: 500;
             font-size: 14px;
+            
           }
         }
 
