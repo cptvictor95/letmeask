@@ -3,13 +3,25 @@
 
 ### Pages
 - Home
-- New Room
+- NewRoom
+- Room
+- AdminRoom
 
 ### Contexts
 - AuthContext
+- ThemeContext
 
 ### Hooks
 - useAuth
+- useRoom
+- useTheme
 
 ### Components
 - Button
+- Question
+- Header
+- RoomCode
+
+### Additional features
+- Remove highlight from question as Admin
+- Color Mode with Dark and Light themes

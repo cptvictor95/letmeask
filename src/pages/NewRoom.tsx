@@ -2,15 +2,18 @@
 import React, { FormEvent, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import illustrationImg from "../assets/images/illustration.svg";
-import logoImg from "../assets/images/logo.svg";
+import logoDark from "../assets/images/logo-darkmode.svg";
+import logoLight from "../assets/images/logo-lightmode.svg";
 import { Button } from "../components/Button";
 import { useAuth } from "../hooks/useAuth";
+import { useTheme } from "../hooks/useTheme";
 import { database } from "../services/firebase";
 
 import "./../styles/auth.scss";
 
 export const NewRoom: React.FC = () => {
   const { user } = useAuth();
+  const { theme } = useTheme();
   const history = useHistory();
   const [newRoom, setNewRoom] = useState("");
 
@@ -32,7 +35,7 @@ export const NewRoom: React.FC = () => {
   };
 
   return (
-    <div id="page-auth">
+    <div id="page-auth" className={theme}>
       <aside>
         <img src={illustrationImg} alt="Ilustração" />
         <strong>Toda pergunta tem uma resposta.</strong>
@@ -40,7 +43,11 @@ export const NewRoom: React.FC = () => {
       </aside>
       <main>
         <div className="main-content">
-          <img src={logoImg} alt="Letmeask" />
+          {theme === "light" ? (
+            <img src={logoLight} alt="Letmeask" />
+          ) : (
+            <img src={logoDark} alt="Letmeask" />
+          )}
           <h1>{user?.name}</h1>
           <h2>Criar uma nova sala</h2>
           <form onSubmit={handleCreateRoom}>

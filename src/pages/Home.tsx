@@ -1,7 +1,8 @@
 import React, { FormEvent, useState } from "react";
 import { useHistory } from "react-router-dom";
 import illustrationImg from "../assets/images/illustration.svg";
-import logoImg from "../assets/images/logo.svg";
+import logoDark from "../assets/images/logo-darkmode.svg";
+import logoLight from "../assets/images/logo-lightmode.svg";
 import googleIconImg from "../assets/images/google-icon.svg";
 import { Button } from "../components/Button";
 
@@ -56,7 +57,11 @@ export const Home: React.FC = () => {
       </aside>
       <main>
         <div className="main-content">
-          <img src={logoImg} alt="Letmeask" />
+          {theme === "light" ? (
+            <img src={logoLight} alt="Letmeask" />
+          ) : (
+            <img src={logoDark} alt="Letmeask" />
+          )}
           <button onClick={handleCreateRoom} className="create-room">
             <img src={googleIconImg} alt="Google Icon" />
             Crie sua sala com o Google
