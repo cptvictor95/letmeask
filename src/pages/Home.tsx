@@ -8,10 +8,12 @@ import { Button } from "../components/Button";
 import "./../styles/auth.scss";
 import { useAuth } from "../hooks/useAuth";
 import { database } from "../services/firebase";
+import { useTheme } from "../hooks/useTheme";
 
 export const Home: React.FC = () => {
   const history = useHistory();
   const { user, signInWithGoogle } = useAuth();
+  const { theme } = useTheme();
   const [roomCode, setRoomCode] = useState("");
 
   const handleCreateRoom = async () => {
@@ -46,7 +48,7 @@ export const Home: React.FC = () => {
   };
 
   return (
-    <div id="page-auth">
+    <div id="page-auth" className={theme}>
       <aside>
         <img src={illustrationImg} alt="Ilustração" />
         <strong>Toda pergunta tem uma resposta.</strong>

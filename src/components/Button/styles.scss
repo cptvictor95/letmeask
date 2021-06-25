@@ -29,6 +29,11 @@
       background: #E73F5D;
     }
 
+    &.icon {
+      padding: 16px;
+      max-width: 48px;
+    }
+
     &:not(:disabled):hover {
       filter: brightness(0.9);
     }

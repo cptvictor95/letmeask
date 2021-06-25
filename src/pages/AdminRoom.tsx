@@ -1,26 +1,27 @@
 import React from "react";
+import { database } from "../services/firebase";
 import { useHistory, useParams } from "react-router-dom";
-
-import logoImg from "../assets/images/logo.svg";
-import deleteImg from "../assets/images/delete.svg";
-import checkImg from "../assets/images/check.svg";
-import answerImg from "../assets/images/answer.svg";
+import { useAuth } from "../hooks/useAuth";
+import { useRoom } from "../hooks/useRoom";
 import { Button } from "../components/Button";
 import { Question } from "../components/Question";
 import { RoomCode } from "../components/RoomCode";
-import { useAuth } from "../hooks/useAuth";
-import { useRoom } from "../hooks/useRoom";
-
-import "../styles/room.scss";
-import { database } from "../services/firebase";
+import { Header } from "../components/Header";
 import { QuestionType } from "../interface/Question";
+
+import deleteImg from "../assets/images/delete.svg";
+import checkImg from "../assets/images/check.svg";
+import answerImg from "../assets/images/answer.svg";
+import "../styles/room.scss";
+import { useTheme } from "../hooks/useTheme";
 
 type RoomParams = {
   id: string;
 };
 
 export const AdminRoom: React.FC = () => {
-  const { user, signOut } = useAuth();
+  const { signOut } = useAuth();
+  const { theme } = useTheme();
   const params = useParams<RoomParams>();
   const history = useHistory();
   const roomId = params.id;
@@ -56,19 +57,14 @@ export const AdminRoom: React.FC = () => {
   };
 
   return (
-    <div id="page-room">
-      <header>
-        <div className="content">
-          <img src={logoImg} alt="Logo" />
-          <div>
-            <RoomCode code={roomId} />
-            <Button isOutlined onClick={handleCloseRoom}>
-              Encerrar sala
-            </Button>
-            <Button onClick={signOut}>Sair</Button>
-          </div>
-        </div>
-      </header>
+    <div id="page-room" className={theme}>
+      <Header>
+        <RoomCode code={roomId} />
+        <Button isOutlined onClick={handleCloseRoom}>
+          Encerrar sala
+        </Button>
+        <Button onClick={signOut}>Sair</Button>
+      </Header>
 
       <main>
         <div className="room-title">

@@ -1,23 +1,21 @@
 import React, { FormEvent } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-
-import logoImg from "../assets/images/logo.svg";
 import { Button } from "../components/Button";
 import { Question } from "../components/Question";
-import { RoomCode } from "../components/RoomCode";
 import { useAuth } from "../hooks/useAuth";
 import { useRoom } from "../hooks/useRoom";
 import { database } from "../services/firebase";
+import { useTheme } from "../hooks/useTheme";
 
 import "../styles/room.scss";
-
-type RoomParams = {
-  id: string;
-};
+import { RoomParams } from "../interface/Room";
+import { Header } from "../components/Header";
+import { RoomCode } from "../components/RoomCode";
 
 export const Room: React.FC = () => {
   const { user, signOut } = useAuth();
+  const { theme } = useTheme();
   const params = useParams<RoomParams>();
   const roomId = params.id;
   const { title, questions } = useRoom(roomId);
@@ -65,18 +63,13 @@ export const Room: React.FC = () => {
   };
 
   return (
-    <div id="page-room">
-      <header>
-        <div className="content">
-          <img src={logoImg} alt="" />
-          <div>
-            <RoomCode code={roomId} />
-            <Button onClick={signOut} className="button danger">
-              Sair
-            </Button>
-          </div>
-        </div>
-      </header>
+    <div id="page-room" className={theme}>
+      <Header>
+        <RoomCode code={roomId} />
+        <Button onClick={signOut} className="button danger">
+          Sair
+        </Button>
+      </Header>
 
       <main>
         <div className="room-title">
