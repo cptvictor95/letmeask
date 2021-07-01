@@ -1,3 +1,5 @@
+import { AnswerType } from "./Answer";
+
 export interface QuestionType {
   id: string;
   author: {
@@ -9,6 +11,7 @@ export interface QuestionType {
   isAnswered: boolean;
   likeCount: number;
   likeId: string | undefined;
+  answers: AnswerType[];
 }
 
 export type FirebaseQuestions = Record<
@@ -21,6 +24,7 @@ export type FirebaseQuestions = Record<
     content: string;
     isHighlighted: boolean;
     isAnswered: boolean;
+    answers: AnswerType[];
     likes: Record<
       string,
       {

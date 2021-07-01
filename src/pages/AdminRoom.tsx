@@ -97,6 +97,8 @@ export const AdminRoom: React.FC = () => {
                   key={question.id}
                   content={question.content}
                   author={question.author}
+                  answers={question.answers}
+                  questionId={question.id}
                   isAnswered={question.isAnswered}
                   isHighlighted={question.isHighlighted}
                 >

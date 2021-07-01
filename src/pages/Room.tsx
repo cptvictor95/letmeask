@@ -126,6 +126,8 @@ export const Room: React.FC = () => {
                   author={question.author}
                   isAnswered={question.isAnswered}
                   isHighlighted={question.isHighlighted}
+                  questionId={question.id}
+                  answers={question.answers}
                 >
                   {!question.isAnswered ? (
                     <button

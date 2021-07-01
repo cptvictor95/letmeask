@@ -28,7 +28,30 @@
   }
 
   p {
+    padding: 8px 0;
     color: #29292e;
+    border-bottom: 1px solid #d3d3d3;
+  }
+
+  form {
+    padding: 16px 0;
+    input {
+        width: 100%;
+        border: 3px solid transparent;
+        padding: 8px;
+        border-radius: 8px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+        transition: box-shadow 0.3s;
+        
+        &:hover {
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        &:focus {
+          border: 3px solid #835afd;
+          outline: 0x;
+          outline-color: transparent;
+        }
+    }
   }
 
   footer {
